@@ -1,0 +1,98 @@
+\documentclass[a4paper,notitlepage]{article}
+
+\title{Meeting with Pierros}
+\author{CubeSAT Team}
+\date{\today}
+
+% Language
+\usepackage{polyglossia}
+\setdefaultlanguage{greek}
+\setotherlanguage{english}
+
+% Fonts
+\newfontfamily\greekfont[Script=Greek]{Arial}
+\newfontfamily\greekfontsf[Script=Greek]{Arial}
+\newfontfamily\greekfonttt[Script=Greek]{Latin Modern Mono}
+
+% Packages
+\usepackage{hyperref}
+\usepackage[xindy={glsnumbers=false}]{glossaries}
+\usepackage{xcolor}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+
+% Link colours
+\hypersetup{colorlinks,linkcolor={blue!60!black!90!green},citecolor={blue!50!black},urlcolor={cyan!70!black}}
+
+% Main document
+\begin{document}
+	\maketitle
+	
+	\section{Determination of the Science Unit}
+	Τι specifications θα έχει το Science Unit μας, διότι άμα δε γνωρίζουμε τι χρειάζεται ο αισθητήρας μπορεί να κάνουμε "άσκοπη" δουλειά για την αποστολή.	
+	
+	\section{Τι μπορεί να γίνει στην παρούσα φάση;}
+	\begin{itemize}
+		
+		\item Κάθε υποσύστημα να κάνει μερικά 
+		\begin{itemize}
+		\item Αναλύσεις για τη σκιά και τον ήλιο 
+		\item Μελέτη τροχιάς
+		\item Χρήση λογισμικού GMAT (General Mission Analysis Tool)
+		\begin{itemize}
+		\item Πιο εξελιγμένο
+		\item Η NASA χρησιμοποιεί το συγκεκριμένο λογισμικό
+	\end{itemize}
+		\item Χρήση λογισμικού \href{https://www.agi.com/products/engineering-tools}{STK} 
+	\end{itemize}
+		\item Check some 
+		\href{http://ecss.nl/standard/ecss-e-st-70-41c-space-engineering-telemetry-and-telecommand-packet-utilization-15-april-2016/}{ECSS Standards}
+		\item Έτοιμος κώδικας παρεχόμενος από τη Libre Space Foundation για Cortex-M4
+
+	\end{itemize}
+
+	\section{Αμφίδρομη επικοινωνία με CubeSAT}
+	Είναι πιθανή η ανάγκη για αλλαγή για κάποιες παραμέτρους στο CubeSAT κατά τη διάρκεια της αποστολής. Για παράδειγμα:
+	\begin{itemize}
+		\item Εάν το GPS, για τον οποιοδήποτε λόγο δε δουλέψει σωστά (αποτελεί συχνό φαινόμενο) μπορεί να χρειαστεί να στείλουμε από "κάτω" τις "συντεταγμένες" για να εκτελέσει callibration.
+		\item Σε περίπτωση που ο δορυφόρος κάνει reset, είναι πιθανό να χαθεί το RTC (Real Time Clock), επομένως ίσως χρειαστεί να ρυθμιστεί από "κάτω".
+		\item Εάν ο χώρος δεν είναι επαρκής ίσως χρειαστεί να διαγραφούν κάποια στοιχεία.
+	\end{itemize}
+	\newpage
+	\section{OBC advice about processors}
+	\begin{itemize}
+		\item Καλό θα ήταν να χρησιμοποιηθούν ARM processors σε όλα τα υποσυστήματα για καλύτερη συμβατότητα.
+		\item Texas Instruments / ST 
+	\begin{itemize}
+		\item Μπορούμε να ψάξουμε για σειρές που είναι διπύρηνες / Step locking
+		\item Search for Safety Application Controllers
+		\item Hercules Series TI (30€)
+		\item STM 32 (Cortex-M0 - Low Power)
+		\item Nucleo
+		\item Cube MX
+		\item 32 bits οπωσδήποτε
+		\item ποιο θα είναι το physical layer μεταξύ των micro controllers
+	\end{itemize}
+	\begin{itemize}
+		\item Σειριακά (TX-RX)
+		\item I2C
+		\item CAN / CAN-open
+	
+	\end{itemize}
+		\item FreeRTOS --> UpSAT αλλά όχι σε όλα τα υποσυστήματα, κάπου χρησιμοποιήθηκε και bare coding (e.g. C programming language)
+		\item προτείνεται να χρησιμοποιηθεί το συγκεκριμένο λογισμικό, διότι θα μας "λύσει" τα χέρια σε περίπλοκους κώδικες. Αν είναι κάτι πιο απλό καθαρός κώδικας.
+		\item KubeOS --> RIOS (αν χρησιμοποιήσουμε έτοιμο OBC βολεύει περισσότερο, αν όμως χτίσουμε από την αρχή δε βολεύει καθόλου)
+	\end{itemize}
+
+
+
+		
+
+
+
+
+	\glsaddall % print all glossary entries, even those that haven't been mentioned
+\printglossaries
+
+\end{document}
+	
+	
