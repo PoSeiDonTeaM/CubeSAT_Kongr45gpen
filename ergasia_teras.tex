@@ -1,0 +1,87 @@
+\documentclass[a4paper,notitlepage]{article}
+
+\newsavebox{\myhbar}
+\savebox{\myhbar}{$\hbar$}
+
+\title{Κβαντομηχανική Ι - 2ο σετ Ασκήσεων}
+\author{Αθανασιάδου Αλίκη - ΑΕΜ:14414}
+\date{\today}
+
+% Language
+\usepackage{polyglossia}
+\setdefaultlanguage{greek}
+\setotherlanguage{english}
+
+% Fonts
+\newfontfamily\greekfont[Script=Greek]{Arial}
+\newfontfamily\greekfontsf[Script=Greek]{Arial}
+\newfontfamily\greekfonttt[Script=Greek]{Latin Modern Mono}
+
+% Packages
+\usepackage{hyperref}
+\usepackage[xindy={glsnumbers=false}]{glossaries}
+\usepackage{xcolor}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+
+% Link colours
+\hypersetup{colorlinks,linkcolor={blue!60!black!90!green},citecolor={blue!50!black},urlcolor={cyan!70!black}}
+
+\renewcommand*{\hbar}{\mathalpha{\usebox{\myhbar}}}
+
+% Main document
+\begin{document}
+	\maketitle
+	
+	\section{Άσκηση 1}
+	
+	
+	
+	\[\frac{d}{dt}(x^2) = \frac{1}{m}[(xp_x) + (p_xx)] \]
+	
+	Λύση:\\
+	
+	Γνωρίζοντας ότι:  \[\frac{d}{dt}(G) = \frac{1}{h}([H,G]) \]
+	
+	Επομένως: 
+	
+\[	G \to x^2\]
+
+\[\frac{d}{dt}(x^2) = \frac{i}{h}([H,x^2])\hspace{1cm}	(1) \]
+
+\[[H, x^2] = \left[\frac{1}{2m}(p_x^2 + p_y^2 + p_z^2) + V,x^2 \right] = \frac{1}{2m}[p_x^2,x^2] + [V,x^2] = \frac{1}{2m}[p_x^2,x^2]  \] \\
+
+Αναλύοντας τις πράξεις, προκύπτει ότι:
+
+\[p_x^2,x^2 = [p_xp_x,x^2] = [p_x,x^2]p_x + p_x[p_x,x^2] = [p_x,xx]p_x + p_x[p_x,xx] \]
+\[ = [p_x,x]xp_x + x[p_x,x]p_x + p_x[p_x,x]x + p_xx[p_x,x] = - \hbar xp_x - ihxp_x - ihp_xx -ihp_xx = -2ihxp_x -2ihp_xx  \]
+
+Επομένως:
+
+\[\left[H,x^2\right] = \frac{-h}{m}(xp_x + p_xx) \]
+
+\[\myhbar\]
+
+
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		\glsaddall % print all glossary entries, even those that haven't been mentioned
+	\printglossaries
+	
+\end{document}
+
